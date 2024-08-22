@@ -1,5 +1,6 @@
 package com.example.form.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -10,6 +11,8 @@ import com.example.form.Constants
 import com.example.form.database.Form
 import com.example.form.databinding.ActivityViewProfileBinding
 import com.example.form.viewmodels.FormViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+
 
 class ViewProfile : AppCompatActivity() {
 
@@ -32,11 +35,11 @@ class ViewProfile : AppCompatActivity() {
         })
 
         binding.btnUpdate.setOnClickListener {
-            startActivity(Intent(this@ViewProfile,Update::class.java))
+            startActivity(Intent(this@ViewProfile, Update::class.java))
         }
 
         binding.btnCreate.setOnClickListener {
-            startActivity(Intent(this@ViewProfile,CreateProfile::class.java))
+            startActivity(Intent(this@ViewProfile, CreateProfile::class.java))
         }
 
         binding.btnDelete.setOnClickListener {
@@ -45,20 +48,33 @@ class ViewProfile : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun deleteProfile(formObj: Form) {
-        viewModel.delete(formObj){
-            Toast.makeText(this@ViewProfile, "Profile Deleted", Toast.LENGTH_SHORT).show()
-            binding.apply {
-                tvName.setText("Name:")
-                tvEmail.setText("Email:")
-                tvPhoneNumber.setText("Phone:")
-                tvGender.setText("Gender:")
-                tvInterests.setText("Interests:")
-                tvNotifications.setText("Notification:")
+
+        MaterialAlertDialogBuilder(this@ViewProfile)
+            .setTitle("Delete")
+            .setMessage("Are you sure want to delete?")
+            .setPositiveButton("Yes") { _, _ ->
+                viewModel.delete(formObj) {
+                    Toast.makeText(this@ViewProfile, "Profile Deleted", Toast.LENGTH_SHORT).show()
+                    binding.apply {
+                        tvName.text = "Name:"
+                        tvEmail.text = "Email:"
+                        tvPhoneNumber.text = "Phone:"
+                        tvGender.text = "Gender:"
+                        tvInterests.text = "Interests:"
+                        tvNotifications.text = "Notification:"
+                    }
+                }
+            }.setNegativeButton("Cancel") { dialogInterface, _ ->
+                dialogInterface.cancel()
             }
-        }
+            .show()
+            .setCancelable(false)
+
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setData(form: Form) {
         form.apply {
             binding.tvName.text = "Name: ${form.name}"
