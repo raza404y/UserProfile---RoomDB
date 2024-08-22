@@ -1,0 +1,188 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:padding="16dp"
+    tools:context=".ui.Update">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Profile Setup"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp"/>
+
+        <!-- Name -->
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:background="@drawable/edittext_background"/>
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Phone Number -->
+        <EditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginTop="8dp"/>
+
+        <!--     &lt;!&ndash; Date of Birth &ndash;&gt;
+             <TextView
+                 android:id="@+id/tvDateOfBirthLabel"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Date of Birth"
+                 android:layout_marginTop="16dp"
+                 android:textSize="16sp"
+                 android:textStyle="bold"/>
+
+             <TextView
+                 android:id="@+id/tvDateOfBirth"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:padding="12dp"
+                 android:background="@drawable/edittext_background"
+                 android:text="Select Date"
+                 android:textColor="#777"
+                 android:layout_marginTop="8dp"/>-->
+
+        <!-- Gender -->
+        <TextView
+            android:id="@+id/tvGenderLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"/>
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:layout_marginStart="16dp"/>
+
+            <RadioButton
+                android:id="@+id/rbOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                android:layout_marginStart="16dp"/>
+        </RadioGroup>
+
+        <!-- Interests -->
+        <TextView
+            android:id="@+id/tvInterestsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Interests"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <CheckBox
+            android:id="@+id/cbReading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reading"
+            android:layout_marginTop="8dp"/>
+
+        <CheckBox
+            android:id="@+id/cbTraveling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Traveling"
+            android:layout_marginTop="8dp"/>
+
+        <CheckBox
+            android:id="@+id/cbGaming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gaming"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Notifications -->
+        <TextView
+            android:id="@+id/tvNotificationsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notifications"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/swEmailNotifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Receive Email Notifications"
+            android:layout_marginTop="8dp"/>
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/swSMSNotifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Receive SMS Notifications"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Save Button -->
+
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Profile"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:layout_margin="16dp"
+            android:background="@color/purple_500"
+            android:textColor="@android:color/white"
+            android:padding="12dp"/>
+
+
+
+    </LinearLayout>
+</ScrollView>

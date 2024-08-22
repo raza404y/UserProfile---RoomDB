@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:fillViewport="true"
+    tools:context=".ui.ViewProfile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Profile"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp"/>
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name: "
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:background="@drawable/textview_background"/>
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email: "
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:background="@drawable/textview_background"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Phone Number -->
+        <TextView
+            android:id="@+id/tvPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone Number: "
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:background="@drawable/textview_background"
+            android:layout_marginTop="8dp"/>
+
+
+        <!-- Gender -->
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gender: "
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:background="@drawable/textview_background"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Interests -->
+        <TextView
+            android:id="@+id/tvInterests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Interests: "
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:background="@drawable/textview_background"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Notifications -->
+        <TextView
+            android:id="@+id/tvNotifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notifications: "
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:background="@drawable/textview_background"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Edit Button -->
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Profile"
+            android:textSize="18sp"
+            android:elegantTextHeight="true"
+            android:layout_marginTop="24dp"
+            android:background="@color/purple_500"
+            android:textColor="@android:color/white"
+            android:padding="12dp"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Profile"
+            android:textSize="18sp"
+            android:elegantTextHeight="true"
+            android:layout_marginTop="24dp"
+            android:textAllCaps="false"
+            android:background="@drawable/btn_bg"
+            android:textColor="@android:color/black"
+            android:padding="12dp"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Profile"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_bg"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:elegantTextHeight="true"
+            android:layout_marginTop="24dp"
+            android:textColor="@android:color/black"
+            android:padding="12dp"/>
+
+
+    </LinearLayout>
+</ScrollView>
