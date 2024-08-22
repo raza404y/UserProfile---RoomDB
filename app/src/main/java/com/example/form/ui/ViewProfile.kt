@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.form.Constants
+import com.example.form.R
 import com.example.form.database.Form
 import com.example.form.databinding.ActivityViewProfileBinding
 import com.example.form.viewmodels.FormViewModel
@@ -51,7 +52,7 @@ class ViewProfile : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun deleteProfile(formObj: Form) {
 
-        MaterialAlertDialogBuilder(this@ViewProfile)
+        MaterialAlertDialogBuilder(this@ViewProfile, R.style.RoundShapeTheme)
             .setTitle("Delete")
             .setMessage("Are you sure want to delete?")
             .setPositiveButton("Yes") { _, _ ->
