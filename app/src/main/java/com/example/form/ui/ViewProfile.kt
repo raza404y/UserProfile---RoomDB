@@ -20,7 +20,7 @@ class ViewProfile : AppCompatActivity() {
     private val binding: ActivityViewProfileBinding by lazy {
         ActivityViewProfileBinding.inflate(layoutInflater)
     }
-    private lateinit var formObj: Form
+    private var formObj: Form? = null
     private lateinit var viewModel: FormViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,36 +44,39 @@ class ViewProfile : AppCompatActivity() {
         }
 
         binding.btnDelete.setOnClickListener {
-            deleteProfile(formObj)
+            formObj?.let { it1 -> deleteProfile(it1) }
         }
 
     }
 
     @SuppressLint("SetTextI18n")
-    private fun deleteProfile(formObj: Form) {
-
-        MaterialAlertDialogBuilder(this@ViewProfile, R.style.RoundShapeTheme)
-            .setTitle("Delete")
-            .setMessage("Are you sure want to delete?")
-            .setPositiveButton("Yes") { _, _ ->
-                viewModel.delete(formObj) {
-                    Toast.makeText(this@ViewProfile, "Profile Deleted", Toast.LENGTH_SHORT).show()
-                    binding.apply {
-                        tvName.text = "Name:"
-                        tvEmail.text = "Email:"
-                        tvPhoneNumber.text = "Phone:"
-                        tvGender.text = "Gender:"
-                        tvInterests.text = "Interests:"
-                        tvNotifications.text = "Notification:"
+    private fun deleteProfile(formObj: Form?) {
+        formObj?.let {
+            MaterialAlertDialogBuilder(this@ViewProfile, R.style.RoundShapeTheme)
+                .setTitle("Delete")
+                .setMessage("Are you sure you want to delete Profile?")
+                .setPositiveButton("Yes") { _, _ ->
+                    viewModel.delete(it) {
+                        Toast.makeText(this@ViewProfile, "Profile Deleted", Toast.LENGTH_SHORT).show()
+                        binding.apply {
+                            tvName.text = "Name:"
+                            tvEmail.text = "Email:"
+                            tvPhoneNumber.text = "Phone:"
+                            tvGender.text = "Gender:"
+                            tvInterests.text = "Interests:"
+                            tvNotifications.text = "Notification:"
+                        }
                     }
+                }.setNegativeButton("Cancel") { dialogInterface, _ ->
+                    dialogInterface.cancel()
                 }
-            }.setNegativeButton("Cancel") { dialogInterface, _ ->
-                dialogInterface.cancel()
-            }
-            .show()
-            .setCancelable(false)
-
+                .show()
+                .setCancelable(false)
+        } ?: run {
+            Toast.makeText(this@ViewProfile, "Profile not loaded", Toast.LENGTH_SHORT).show()
+        }
     }
+
 
     @SuppressLint("SetTextI18n")
     private fun setData(form: Form) {
